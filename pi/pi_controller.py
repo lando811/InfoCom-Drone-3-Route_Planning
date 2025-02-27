@@ -37,8 +37,8 @@ def run(current_coords, from_coords, to_coords, SERVER_URL):
         while current != target:
             current = travel(current, target)
             with requests.Session() as session:
-                drone_location = {'longitude': drone_coords[0],
-                                  'latitude': drone_coords[1]
+                drone_location = {'longitude': current[0],
+                                  'latitude': current[1]
                             }
                 resp = session.post(SERVER_URL, json=drone_location)
             
