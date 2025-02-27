@@ -9,9 +9,9 @@ def travel(current, target):
     x,y = current
     x_t,y_t = target
 
-    distance = math.sqrt((x_t - x)**2 + (y_t - y)**2)
+    distance = math.sqrt((x_t - x)**2 + (y_t - y)**2) * 1000
 
-    n = math.ceil(distance*1000)
+    n = math.ceil(distance)
 
     x_next = x + (x_t - x)/n
     y_next = y + (y_t - x)/n
