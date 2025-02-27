@@ -6,8 +6,16 @@ import argparse
 #the function returns the drone's current location while moving
 #====================================================================================================
 def travel(current, target):
-    longitude = 13.21008
-    latitude = 55.71106
+    x,y = current
+    x_t,y_t = target
+
+    distance = math.sqrt((x_t - x)**2 + (y_t - y)**2) * 1000
+
+    n = math.ceil(distance)
+
+    x_next = x + (x_t - x)/n
+    y_next = y + (y_t - x)/n
+    
     return (longitude, latitude)
 
 #====================================================================================================
