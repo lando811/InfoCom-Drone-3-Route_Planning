@@ -41,8 +41,8 @@ def run(current_coords, from_coords, to_coords, SERVER_URL):
                 drone_location = {'longitude': current[0],
                                   'latitude': current[1]
                             }
-                resp = session.post(SERVER_URL, json=drone_location)
-                time.sleep(0.2)
+            resp = session.post(SERVER_URL, json=drone_location)
+            time.sleep(0.2)
             
         current = target
     print(f"Arrived at {to_coords}")
