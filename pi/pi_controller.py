@@ -16,13 +16,7 @@ def travel(current, target):
     x_next = x + (x_t - x)/n
     y_next = y + (y_t - x)/n
     
-
-    drone_coords = (longitude, latitude)
-            with requests.Session() as session:
-                drone_location = {'longitude': drone_coords[0],
-                                  'latitude': drone_coords[1]
-                            }
-                resp = session.post(SERVER_URL, json=drone_location)
+    return (x_next, y_next)
 
 
 #====================================================================================================
@@ -36,11 +30,20 @@ def run(current_coords, from_coords, to_coords, SERVER_URL):
     #====================================================================================================
 #My function that moves the drone from one place to another
     
-    travel(current_coords, from_coords)
-    travel(from_coords, to_coords)
+    current = current_coords
+    targets = [from_coords, to_coords]
     
-    
-
+    for target in targets:
+        while current != target:
+            current = travel(current, target)
+            with requests.Session() as session:
+                drone_location = {'longitude': drone_coords[0],
+                                  'latitude': drone_coords[1]
+                            }
+                resp = session.post(SERVER_URL, json=drone_location))
+            
+        current = target
+    print(f"Arrived at {to_coords}")
   #====================================================================================================
 
    
