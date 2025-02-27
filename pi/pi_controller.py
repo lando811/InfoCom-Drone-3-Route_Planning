@@ -40,12 +40,7 @@ def run(current_coords, from_coords, to_coords, SERVER_URL):
     travel(from_coords, to_coords)
     
     
-        drone_coords = your_function()
-        with requests.Session() as session:
-            drone_location = {'longitude': drone_coords[0],
-                              'latitude': drone_coords[1]
-                        }
-            resp = session.post(SERVER_URL, json=drone_location)
+
   #====================================================================================================
 
    
