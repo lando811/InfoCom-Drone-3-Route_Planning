@@ -35,7 +35,7 @@ def run(current_coords, from_coords, to_coords, SERVER_URL):
     targets = [from_coords, to_coords]
     
     for target in targets:
-        while current != target:
+        while math.sqrt((target[0] - current[0])**2 + (target[1] - current[1])**2) * 10000>0.00002
             current = travel(current, target)
             with requests.Session() as session:
                 drone_location = {'longitude': current[0],
