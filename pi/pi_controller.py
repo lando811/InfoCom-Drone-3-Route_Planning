@@ -16,7 +16,14 @@ def travel(current, target):
     x_next = x + (x_t - x)/n
     y_next = y + (y_t - x)/n
     
-    return (longitude, latitude)
+
+    drone_coords = (longitude, latitude)
+            with requests.Session() as session:
+                drone_location = {'longitude': drone_coords[0],
+                                  'latitude': drone_coords[1]
+                            }
+                resp = session.post(SERVER_URL, json=drone_location)
+
 
 #====================================================================================================
 
